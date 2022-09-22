@@ -1,0 +1,141 @@
+.container{
+    max-width: 1800px;
+    margin: 0px auto;
+    /* background-color: bisque; */
+    overflow: auto;
+    padding: 0 20px;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; */
+}
+.column-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; */
+}
+
+.logo{
+    width: 65px;
+    height: 65px;
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 30px;
+    background-color: var(--navbar-color);
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+
+.form-card{
+    background-color: var(--light-gray);
+    margin: 10px;
+    padding: 2rem 4rem;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.text-center{
+    text-align: center;
+}
+
+.height_full{
+    height: 100%;
+}
+
+.width-full{
+    width: 100%;
+}
+.profile{
+    background-color: #1A237E;
+    padding: 10px 15px;
+    border-radius: 50%;
+}
+.profile:hover{
+    cursor: pointer;
+}
+.profile a{
+    color: #fff;
+}
+
+/*Dropdown*/
+.dropdown-menu{
+    width: 140px;
+    height: 120px;
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    position: absolute;
+    top: 75px;
+    left: 90%;
+    border-radius: 10px;
+    z-index: 99;
+    background-color: var(--white);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown-menu .column-flex{
+    justify-content: center;
+}
+
+.dropdown-menu ul li{
+    margin: 5px 15px;
+    padding: 10px 5px;
+}
+
+.dropdown-menu .first-child{
+    border-bottom: 1px solid #777;
+    padding-top: 6px;
+}
+.dropdown-menu li a{
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 400;
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    /* padding: 10px 0; */
+}
+
+.dropdown-menu li a i {
+    font-size: 1.4rem;
+}
+
+.dropdown-menu > ul a::after{
+    content: '';
+    display: block;
+    width: 0px;
+    height: 1px;
+    background-color: var(--dark-gray);
+    transition: width .3s;
+}
+
+.dropdown-menu ul a:hover::after{
+    width: 0px;
+}
+
+
+.dropdown-menu li a i {
+    font-size: 1.4rem;
+}
+
+.active{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
