@@ -49,12 +49,15 @@ h1,h2{
     font-family: 'Open Sans', sans-serif;
 }
 input{
-    background-color: var(--light-gray);
+    background-color: var(--white);
     /* width: 100%; */
     outline: none;
     border: none;
 }
 
+input  :focus{
+    background-color: var(--white);
+}
 /*Main Styling*/
 /*Navbar*/
 .navbar{
@@ -94,7 +97,8 @@ input{
 
 /*Showcase*/
 .showcase{
-    height: 800px;   
+    height: 90%;
+    /* height: 800px; */
     /* background-color: burlywood; */
 }
 
@@ -122,6 +126,9 @@ input{
     display: none;
 }
 
+.text-blink{
+    visibility: hidden;
+}
 .showcase-form.register{
     width: 560px;
     height: 650px;
@@ -135,6 +142,8 @@ input{
 .showcase-form .form-control{
     height: 60px;
     margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: left;
     border-bottom: 1px solid #333;
     position: relative;
     font-size: 20px;
@@ -153,7 +162,7 @@ input{
     margin-left: 10px;
     margin-bottom: 2px;
     font-size: 20px;
-    background: var(--light-gray);
+    background: var(--white);
     width: 100%;
 }
 
@@ -187,15 +196,18 @@ input{
 }
 .showcase-form.login{
     width: 560px;
-    height: 450px;
+    min-height: 450px;
 }
 .login.form-card{
     padding: 2rem 4.5rem;
 }
-
+.path{
+    margin-top: 20px;
+}
+.path.flex{
+    justify-content: space-between;
+}
 /* .login .form-control{
     margin: 35px 0;
 } */
-.link.flex{
-    justify-content: space-between;
-}
+

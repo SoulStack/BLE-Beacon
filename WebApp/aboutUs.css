@@ -21,6 +21,7 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     list-style: none;
+    text-decoration: none;
 }
 
 
@@ -68,6 +69,7 @@ h1,h2{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 .nav > ul > li{
     margin:0 60px;
@@ -92,23 +94,11 @@ h1,h2{
     width: max-content;
 }
 
-.logo-section .logo:nth-child(2){
-    width: 100px;
-    display: grid;
-    place-items: center;
-    color: var(--navbar-color);
-    /* margin-left: 20px; */
-}
-
-.logo-section .logo:nth-child(2) a{
-    font-size: 30px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    margin-left: 20px;
-}
 
 /* Main Body */
-
+.main-body{
+    margin-top: 50px;
+}
 .main-body .container{
     max-width: 1600px;
 }

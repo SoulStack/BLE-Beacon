@@ -32,10 +32,10 @@
         </div>
     </header>
 
-    <section class="showcase">
+    <section class="showcase flex">
         <div class="container grid">
 
-            <div class="showcase-form form-card text-center register" id="signinform">
+            <div class="showcase-form form-card text-center register form-hidden" id="signinform">
                 <h2>Register</h2>
                 <form>
                     <div class="form-control flex">
@@ -54,7 +54,7 @@
                         <i class='bx bxs-lock fieldicon'></i>
                         <input type="password" placeholder="Confirm Password" required>
                     </div>
-                    <div class="link">
+                    <div class="path">
                         <a href="#" class="linked" id="login-form-link">Aleady have an account?  Login</a>
                     </div>
                     <input type="submit" value="Sign Up" class="btn" >
@@ -62,35 +62,39 @@
                 </form>
             </div>
 
-            <div class="showcase-form form-card text-center form-hidden login" id="loginform">
+            <div class="showcase-form form-card text-center login" id="loginform">
                 <h2>Login</h2>
-                <form>
+                <form id="login-form">
                     <div class="form-control flex">
                         <i class="fa-solid fa-envelope fieldicon"></i>
-                        <input type="email" placeholder="Email" required>
+                        <input type="email" placeholder="Email" id="email" required autofocus="off" autocomplete="off">
                     </div>
+                    <p class="text-blink">Error Message</p>
                     <div class="form-control flex">
                         <i class='bx bxs-lock fieldicon'></i>
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Password" id="password" required autofocus="off" autocomplete="off">
                     </div>
-                    
-                    <div class="link flex">
+                    <p class="text-blink">Error Message</p>
+                    <div class="path flex">
                         <a href="#" class="linked">Forgot Password</a>
                         <a href="#" class="linked" id="register-form-link">Don't have a account? Register</a>
                     </div>
-
+                    
                     <!-- <input type="submit" value="Log In" class="btn"> -->
-                    <a href="dashboard.html" class="btn">Log In</a>
+                    <!-- <a href="#" class="btn" id="btn">Log In</a> -->
+                    <button class="btn" id="btn">Log In</button>
                 </form>
             </div>
 
             <div class="showcase-img">
-                <img src="./img/pngegg (1).png" alt="">
+                <!-- <img src="./img/pngegg (11).png" alt=""> -->
+                <img src="./img/pngegg (13) (1).png" alt="">
                 <!-- <i class="fa-solid fa-hospital-user"></i> -->
             </div>
         </div>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js - front/landing.js"></script>
 </body>
 </html>

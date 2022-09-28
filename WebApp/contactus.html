@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- header -->
-    <header class="navbar">
+<header class="navbar">
         <div class="container flex height_full">
             <div class="logo-section flex">
                 <div class="logo">
@@ -30,21 +30,26 @@
                     <li><a href="contactus.html">Contact Us</a></li>
                 </ul>
             </nav>
-            <div class="profile" id="profile"><a href="#">S</a>
-                <div class="dropdown-menu" id="dropdown">
-                    <ul class="column-flex text-center height_full">
-                        <li class="first-child">
-                            <a href="#">
-                                <i class="fa-regular fa-address-card"></i>
-                                <!-- <span>Profile</span> -->
-                                Profile
-                            </a>
-                    </li>
-                        <li><a href="#">
-                            <i class='bx bx-log-out-circle'></i>
-                            <span>Logout</span>
-                        </a></li>
-                    </ul>
+            <div class="right_side_nav flex">
+                <i class='bx bx-notepad' id="icon"></i>
+                <div class="profile" id="profile" data-dropdown>
+                    <button class="link" id="link" data-dropdown-button>S</button>
+                    <div class="dropdown-menu" id="dropdown">
+                        <ul class="column-flex text-center height_full">
+                            <li class="first-child">
+                                <a href="#">
+                                    <i class="fa-regular fa-address-card"></i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="landing.html">
+                                    <i class='bx bx-log-out-circle'></i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,25 +62,22 @@
 
                 <div class="showcase-form form-card text-center register" id="signinform">
                     <h2>Contact Us</h2>
-                    <form>
+                    <form id="contact-form">
                         <div class="form-control flex">
                             <i class="fa-solid fa-user fieldicon"></i>
-                            <input type="text" placeholder="Name" required>
+                            <input type="text" placeholder="Name" required id="contact-name">
                         </div>
                         <div class="form-control flex">
                             <i class="fa-solid fa-envelope fieldicon"></i>
-                            <input type="email" placeholder="Email" required>
+                            <input type="email" placeholder="Email" required id="contact-email">
                         </div>
                         <div class="form-control flex">
                             <i class='bx bxs-phone fieldicon'></i>
-                            <input type="password" placeholder="Phone Number" required>
+                            <input type="text" placeholder="Phone Number" required id="contact-phone">
                         </div>
                         <div class="form-control flex">
                             <i class="fa-solid fa-message fieldicon"></i>
-                            <input type="password" placeholder="Message" required>
-                        </div>
-                        <div class="link">
-                            <a href="#" class="linked" id="login-form-link">Aleady have an account?  Login</a>
+                            <input type="text" placeholder="Message" required id="contact-message">
                         </div>
                         <input type="submit" value="Submit" class="btn" >
                         <!-- <button id="btn" class="btn">Sign Up</button> -->
@@ -83,7 +85,7 @@
                 </div>
     
             </div>
-            <div class="connect column-flex height_full text-center">
+            <div class="connect column-flex height_full">
                 <div class="statement">
                     <p>Fill the form and our team will connect with you as soon as possible</p>
                 </div>
@@ -112,6 +114,24 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal Form -->
+    <div class="modal-form card column-flex" id="register-patient-card">
+        <i class="fa-solid fa-xmark close_icon" id="close_icon"></i>    
+        <h2>Patient Registration</h2>
+        <form id="patient-register-form">
+            <div class="form-control">
+                <input type="text" class="name" placeholder="Name" required id="p-name">
+            </div>
+            <div class="form-control">
+                <input type="text" class="company" placeholder="Department" required id="p-dept">
+            </div>
+            <div class="form-control">
+                <input type="text" class="email" placeholder="Beacon Id" required id="b-id">
+            </div>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </div>
 
     <script src="./js - front/aboutUs.js"></script>
 </body>

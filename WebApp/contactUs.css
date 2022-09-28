@@ -52,7 +52,6 @@ h1,h2{
 }
 
 input{
-    background-color: var(--light-gray);
     /* width: 100%; */
     outline: none;
     border: none;
@@ -76,6 +75,7 @@ input{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 .nav > ul > li{
     margin:0 60px;
@@ -100,23 +100,11 @@ input{
     width: max-content;
 }
 
-.logo-section .logo:nth-child(2){
-    width: 100px;
-    display: grid;
-    place-items: center;
-    color: var(--navbar-color);
-    /* margin-left: 20px; */
-}
-
-.logo-section .logo:nth-child(2) a{
-    font-size: 30px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    margin-left: 20px;
-}
 
 /* Main Body */
-
+.main-body{
+    margin-top: 50px;
+}
 .main-body .container{
     max-width: 1600px;
 }
@@ -203,13 +191,10 @@ input{
     margin-left: 10px;
     margin-bottom: 2px;
     font-size: 20px;
-    background: var(--light-gray);
+    /* background: var(--light-gray); */
     width: 100%;
 }
 
-.link{
-    margin-top: 25px;
-}
 .showcase-form a{
     color: #85C1E9;
     font-weight: 400;
