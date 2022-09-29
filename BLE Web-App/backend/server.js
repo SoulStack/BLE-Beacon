@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require('cors');
 const mssql = require('mssql');
-const Msql = require("msql");
 
 const app = express();
 const port = 3000
@@ -67,7 +66,62 @@ app.post('/login',(req,res)=> {
 })
 
 app.post('/patient-register' , (req,res)=> {
-    console.log(req.body)
+    const name = req.body.name;
+    const dept = req.body.dept;
+    const beacon_id = req.body.beacon_id;
+    let query = `INSERT INTO patientDetails (patientName , tagId) VALUES ('${name}' , '${beacon_id}')`;
+    let query_result = mssql.query(query, (err,result)=> {
+        if(err){
+            throw err
+        } else {
+            res.send(JSON.stringify("Patient Registered"))
+        }
+    })
+})
+
+app.get('/calendar-info' , (req , res) => {
+    // console.log(req.body)
+    let query = `SELECT COUNT(*) FROM reader`
+    let query1 = `SELECT COUNT(*) FROM Assets`
+
+    let query_result = mssql.query(query, (err,result) => {
+        if(err){
+            throw err
+        } else {
+            //  console.log(result)
+            let query_result1 = mssql.query(query1 , (err1,result) => {
+                if(err1){
+                    throw err1
+                } else {
+                    res.send(JSON.stringify("calendar Info"))
+                }
+            })
+             
+        }
+    })
+})
+
+app.get('/beacon-info' , (req, res) => {
+    // console.log(req.body)
+    // console.log("beacon-info")
+    let query = `SELECT COUNT(*) FROM reader`;
+    let query_result = mssql.query(query, (err,result) => {
+        if(err){
+            throw err;
+        } else {
+            // console.log(result)
+            res.send(JSON.stringify({
+                total_beacon:650,
+                active_beacon:650,
+                active_reader:300,
+                total_reader:300
+            }))
+        }
+    })
+})
+
+app.get('/graph-info' , (req,res) => {
+    console.log(req)
 })
 
 app.post('/contactUs',(req,res)=> {

@@ -1,3 +1,4 @@
+// Fetch get and post request
 // //Calendar JS
 const date = new Date();
 
@@ -271,11 +272,51 @@ patient_form.addEventListener('submit', (e)=> {
       body:JSON.stringify(data)
   };
 
-  // let url = "http://localhost:3000/patient-register";
   let url = "http://127.0.0.1:3000/patient-register";
   
   fetch(url , option)
   .then(response => response.json())
-  .then(json => console.log(json))
+  .then(json => {
+    console.log(json);
+    patient_name = dept_name.value = beacon_id.value = '';
+  })
   .catch(err => console.log(err))
 })
+
+
+window.addEventListener('load', (e) => {
+  e.preventDefault();
+  // Beacon Info
+  const beacon_section = document.querySelector('#beacon-section');
+  
+  
+  // fetch("http://127.0.0.1:3000/calendar-info-section")
+  // .then(response => response.json())
+  // .then(json => {
+  //   console.log(json)
+  //   console.log(json.active_beacon);
+  //   const return_value = Object.values(json)
+    
+  //   console.log(return_value)
+  //   for( i = 0;i< beacon_section.children.length;i++){
+  //     beacon_section.children.item(i).children.item(1).innerText = return_value[i];
+  //   }
+  // })
+  // .catch(err => console.log(err))
+
+  const calendar_fetch = fetch("http://127.0.0.1:3000/calendar-info")
+  .then(response => response.json());
+
+  const beacon_fetch = fetch("http://127.0.0.1:3000/beacon-info")
+  .then(response => response.json());
+
+  const allData = Promise.all([calendar_fetch, beacon_fetch]);
+
+  allData.then(data => {
+    console.log(data[1])
+  })
+
+  //Graph Section
+
+})
+

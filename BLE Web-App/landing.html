@@ -35,9 +35,9 @@
     <section class="showcase flex">
         <div class="container grid">
 
-            <div class="showcase-form form-card text-center register form-hidden" id="signinform">
+            <div class="showcase-form form-card register" id="signinform">
                 <h2>Register</h2>
-                <form id="register-form">
+                <form id="register-form" class="column-flex">
                     <div class="form-control flex">
                         <i class="fa-solid fa-user fieldicon"></i>
                         <input type="text" placeholder="Name" required id="register-name" autocomplete="off" autofocus="off">
@@ -62,12 +62,12 @@
                     <div class="path">
                         <a href="#" class="linked" id="login-form-link">Aleady have an account?  Login</a>
                     </div>
-                    <input type="submit" value="Sign Up" class="btn" >
-                    <!-- <button id="btn" class="btn">Sign Up</button> -->
+
+                    <button id="btn" class="btn">Sign Up</button>
                 </form>
             </div>
 
-            <div class="showcase-form form-card text-center login" id="loginform">
+            <div class="showcase-form form-card text-center login form-hidden" id="loginform">
                 <h2>Login</h2>
                 <form id="login-form" class="">
                     <div class="form-control flex">

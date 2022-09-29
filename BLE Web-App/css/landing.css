@@ -134,7 +134,7 @@ input  :focus{
 }
 .showcase-form.register{
     width: 560px;
-    height: 650px;
+    height: 600px;
     /* margin-left: auto; */
     margin: auto;
 }
@@ -187,7 +187,13 @@ input  :focus{
 }
 
 /*Showcase register form*/
-.register .link{
+.register form{
+    padding-top:10px
+}
+.register button{
+    margin: 0 auto;
+}
+.register .path{
     width: 100%;
     text-align: right;
 }
@@ -216,7 +222,7 @@ input  :focus{
     margin-top: 25px;
     /* padding-top: 15px; */
 }
-.path{
+.login .path{
     margin-bottom: 25px;
 }
 .path.flex{

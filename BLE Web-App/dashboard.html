@@ -88,7 +88,7 @@
 
                 <!-- Info Sec -->
                 <div class="info-section text-center">
-                    <div class="upper-deck grid">
+                    <div class="upper-deck grid" id="upper-deck">
                         
                         <div class="block asset column-flex">
                             <div class="icon flex">
@@ -118,7 +118,8 @@
                         </div>
 
                     </div>
-                    <div class="lower-deck grid">
+
+                    <div class="lower-deck grid" id="lower-deck">
                         
                         <div class="block acitve-patient column-flex">
                             <div class="icon flex">
@@ -143,23 +144,28 @@
             </div>
             
             <!-- Beacon Info -->
-            <div class="beacon-section column-flex height_full p-relative z-index-zero"> 
+            <div class="beacon-section column-flex height_full p-relative z-index-zero" id="beacon-section"> 
+                
                 <div class="beacon-info">
                     <p>Total No. of Beacons:-</p> 
                     <p>600</p>
                 </div>
+
                 <div class="beacon-info">
                     <p>No. of Active Beacons:-</p> 
                     <p>400</p>
                 </div>
+
                 <div class="beacon-info">
                     <p>No. of Active Readers:-</p> 
                     <p>350</p>
                 </div>
+
                 <div class="beacon-info">
                     <p>Total No. of Readers:-</p> 
                     <p>358</p>
                 </div>
+
             </div>
 
             <!-- Graph Section -->
@@ -240,7 +246,8 @@
             <button type="submit" class="btn">Send</button>
         </form>
     </div>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js - front/dashboard.js"></script>
 </body>
