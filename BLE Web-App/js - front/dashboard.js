@@ -44,7 +44,7 @@ const renderCalendar = () => {
     "December",
   ];
 
-  document.querySelector(".date h2").innerHTML = months[date.getMonth()];
+  document.querySelector(".date h2").innerText = months[date.getMonth()];
 
   let days = "";
 
@@ -283,11 +283,14 @@ patient_form.addEventListener('submit', (e)=> {
   .catch(err => console.log(err))
 })
 
+//Dashboard Fetches
+const beacon_section = document.querySelector('#beacon-section');
+const upper_deck = document.querySelector('#upper-deck');
+const lower_deck = document.querySelector('#lower-deck');
 
 window.addEventListener('load', (e) => {
   e.preventDefault();
   // Beacon Info
-  const beacon_section = document.querySelector('#beacon-section');
   
   
   // fetch("http://127.0.0.1:3000/calendar-info-section")
@@ -310,13 +313,52 @@ window.addEventListener('load', (e) => {
   const beacon_fetch = fetch("http://127.0.0.1:3000/beacon-info")
   .then(response => response.json());
 
-  const allData = Promise.all([calendar_fetch, beacon_fetch]);
+  const graph_fetch = fetch("http://127.0.0.1:3000/graph-info")
+  .then(response => response.json());
+
+  const allData = Promise.all([calendar_fetch, beacon_fetch,graph_fetch]);
 
   allData.then(data => {
-    console.log(data[1])
+    // console.log(data)
+    calendar_info(data[0])
+    beacon_info(data[1])
+    graph_info(data[2])
   })
-
-  //Graph Section
 
 })
 
+function beacon_info(data) {
+  // console.log(data)
+  const return_value = Object.values(data)
+  for( i = 0;i< beacon_section.children.length;i++){
+    beacon_section.children.item(i).children.item(1).innerText = return_value[i];
+  }
+}
+
+function calendar_info(data){
+  const d = new Date();  
+  
+  const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
+  let day = weekdays[d.getDay()];
+  
+  upper_deck.children.item(1).children.item(2).innerText = day;
+  upper_deck.children.item(2).children.item(2).innerText = day;
+  
+  const return_value_upper_deck = Object.values(data[1])
+  const return_value_lower_deck = Object.values(data[0])
+  
+  for( i = 0 ;i < upper_deck.children.length;i++ ){
+    // console.log(upper_deck.children.item(i).children.item(1).innerText )
+    upper_deck.children.item(i).children.item(1).innerText = return_value_upper_deck[i]
+  } 
+  
+  for( i = 0 ;i < lower_deck.children.length;i++ ){
+    // console.log(lower_deck.children.item(i).children.item(1).innerText)
+    lower_deck.children.item(i).children.item(1).innerText = return_value_lower_deck[i]
+  }
+}
+
+function graph_info(data){
+
+}

@@ -89,11 +89,19 @@ app.get('/calendar-info' , (req , res) => {
             throw err
         } else {
             //  console.log(result)
-            let query_result1 = mssql.query(query1 , (err1,result) => {
+            let query_result1 = mssql.query(query1 , (err1,result1) => {
                 if(err1){
                     throw err1
                 } else {
-                    res.send(JSON.stringify("calendar Info"))
+                    res.send(JSON.stringify([
+                    {
+                        total_patient:"13,456",
+                        total_doctor:"1,000"
+                    },{
+                        total_asset:"38,456",
+                        active_patient:"4,785",
+                        active_doctors:"704"
+                    } ]))
                 }
             })
              
@@ -121,7 +129,17 @@ app.get('/beacon-info' , (req, res) => {
 })
 
 app.get('/graph-info' , (req,res) => {
-    console.log(req)
+    // console.log(req.body)
+    let query = `SELECT deptName FROM department`
+    let query1 = `SELECT COUNT(*) `
+
+    let query_result = mssql.query(query , (err, result) => {
+        if(err){
+            throw err
+        } else {
+            // res.send(JSON.stringify())
+        }
+    })
 })
 
 app.post('/contactUs',(req,res)=> {
