@@ -1,5 +1,6 @@
 // Fetch get and post request
 // //Calendar JS
+
 const date = new Date();
 
 const renderCalendar = () => {
@@ -82,140 +83,6 @@ document.querySelector(".next").addEventListener("click", () => {
 renderCalendar();
 
 //Chart 
-const data_asset =  {
-          labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
-          datasets: [{
-              label: '# of Votes',
-              data: [122, 119, 30, 175, 22],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-    };
-
-const data_doctor =  {
-          labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
-          datasets: [{
-              label: '# of Votes',
-              data: [22, 39, 150, 105, 69],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-  };
-
-const data_patient =  {
-    labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
-    datasets: [{
-        label: '# of Votes',
-        data: [74, 99, 430, 245, 32],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-    }]
-};
-
-const config_asset = {
-  type: 'doughnut',
-  data: data_asset,
-  options: {
-    responsive: false,
-    maintainAspectRatio:false,
-    plugins: {
-    legend: {
-      display:false,
-      position:'right'
-    }
-  }
-}
-};
-
-const config_doctor = {
-  type: 'doughnut',
-  data: data_doctor,
-  options: {
-    responsive: false,
-    maintainAspectRatio:false,
-    plugins: {
-    legend: {
-      display:false,
-      position:'right'
-    }
-  }
-}
-};
-
-const config_patient = {
-  type: 'doughnut',
-  data: data_patient,
-  options: {
-    responsive: false,
-    maintainAspectRatio:false,
-    plugins: {
-    legend: {
-      display:false,
-      position:'right'
-    }
-  }
-}
-};
-
-const myChart1 = new Chart(
-  document.getElementById('d-chart1'),
-  config_asset
-);
-
-const myChart2 = new Chart(
-  document.getElementById('d-chart2'),
-  config_doctor
-);
-
-const myChart3 = new Chart(
-  document.getElementById('d-chart3'),
-  config_patient
-);
 
 //Dropdown
 const link = document.getElementById('link');
@@ -290,23 +157,7 @@ const lower_deck = document.querySelector('#lower-deck');
 
 window.addEventListener('load', (e) => {
   e.preventDefault();
-  // Beacon Info
   
-  
-  // fetch("http://127.0.0.1:3000/calendar-info-section")
-  // .then(response => response.json())
-  // .then(json => {
-  //   console.log(json)
-  //   console.log(json.active_beacon);
-  //   const return_value = Object.values(json)
-    
-  //   console.log(return_value)
-  //   for( i = 0;i< beacon_section.children.length;i++){
-  //     beacon_section.children.item(i).children.item(1).innerText = return_value[i];
-  //   }
-  // })
-  // .catch(err => console.log(err))
-
   const calendar_fetch = fetch("http://127.0.0.1:3000/calendar-info")
   .then(response => response.json());
 
@@ -319,16 +170,14 @@ window.addEventListener('load', (e) => {
   const allData = Promise.all([calendar_fetch, beacon_fetch,graph_fetch]);
 
   allData.then(data => {
-    // console.log(data)
     calendar_info(data[0])
     beacon_info(data[1])
     graph_info(data[2])
   })
-
+  allData.catch(err => console.log(err))
 })
 
 function beacon_info(data) {
-  // console.log(data)
   const return_value = Object.values(data)
   for( i = 0;i< beacon_section.children.length;i++){
     beacon_section.children.item(i).children.item(1).innerText = return_value[i];
@@ -341,7 +190,7 @@ function calendar_info(data){
   const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
   let day = weekdays[d.getDay()];
-  
+
   upper_deck.children.item(1).children.item(2).innerText = day;
   upper_deck.children.item(2).children.item(2).innerText = day;
   
@@ -360,5 +209,147 @@ function calendar_info(data){
 }
 
 function graph_info(data){
+  // console.log(data)
+  const nodelist = document.querySelectorAll('.legend');
+  const label = Array.from(nodelist);
+  
+  console.log(label[0].children.item(0).children)
+  // label[0].children.item(0).innerHTML = '';
+  const li = document.createElement('li');
+  const data_asset =  {
+      labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
+      // labels: data,
+      datasets: [{
+        label: '# of Votes',
+        data: [122, 119, 30, 175, 22],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    };
+
+const data_doctor =  {
+    labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
+    datasets: [{
+    label: '# of Votes',
+      data: [22, 39, 150, 105, 69],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+        ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  };
+
+const data_patient =  {
+    labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
+    datasets: [{
+      label: '# of Votes',
+      data: [74, 99, 430, 245, 32],
+      backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+};
+
+const config_asset = {
+  type: 'doughnut',
+  data: data_asset,
+  options: {
+    responsive: false,
+    maintainAspectRatio:false,
+    plugins: {
+    legend: {
+      display:false,
+      position:'right'
+    }
+  }
+}
+};
+
+const config_doctor = {
+  type: 'doughnut',
+  data: data_doctor,
+  options: {
+    responsive: false,
+    maintainAspectRatio:false,
+    plugins: {
+    legend: {
+      display:false,
+      position:'right'
+    }
+  }
+}
+};
+
+const config_patient = {
+  type: 'doughnut',
+  data: data_patient,
+  options: {
+    responsive: false,
+    maintainAspectRatio:false,
+    plugins: {
+    legend: {
+      display:false,
+      position:'right'
+    }
+  }
+}
+};
+
+const myChart1 = new Chart(
+  document.getElementById('d-chart1'),
+  config_asset
+);
+
+const myChart2 = new Chart(
+  document.getElementById('d-chart2'),
+  config_doctor
+);
+
+const myChart3 = new Chart(
+  document.getElementById('d-chart3'),
+  config_patient
+);
 
 }

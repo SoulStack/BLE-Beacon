@@ -99,7 +99,7 @@ input{
 
 /*Main Body*/
 .main-body{
-    margin: 20px 0;
+    margin: 10px 0;
     padding-top: 20px;
 }
 .main-body > .grid{
@@ -108,7 +108,7 @@ input{
     "calendar calendar beacon"
     "graph graph graph"
     ;
-    gap: 20px;
+    gap: 30px;
 }
 /*Calendar Section*/
 .calendar-section{
@@ -225,14 +225,14 @@ input{
 }
 
 .upper-deck{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .upper-deck.grid{
     /* background-color: blueviolet; */
     grid-template-columns: repeat(3 ,1fr);
 }
 .lower-deck{
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .lower-deck.grid{
     gap: 30px;
@@ -325,10 +325,9 @@ input{
     grid-template-columns: repeat(3 , 1fr);
 
 }
-.graph-section .column-flex{
+/* .graph-section .column-flex{
     align-items: center;
-    /* justify-content: space-between; */
-}
+} */
 .graph{
     padding: 20px 25px 15px 25px;
     background-color: var(--white);
@@ -361,15 +360,22 @@ input{
     width: 270px;
     height: 270px;
 }
+.legend{
+    height: 270px;
+}
 .legend li{
-    margin: 1.8rem 0;
+    /* margin: 1.8rem 0; */
     list-style: disc outside none;
 }
 .legend li::marker {
     font-size: 1.7rem;
 }
 
-.legend .l1::marker{
+/* .legend .l1::marker{
+    color: rgba(255, 99, 132, 1);
+} */
+
+.legend li:nth-child(1)::marker{
     color: rgba(255, 99, 132, 1);
 }
 

@@ -137,7 +137,13 @@ app.get('/graph-info' , (req,res) => {
         if(err){
             throw err
         } else {
-            // res.send(JSON.stringify())
+            let deptName = [];
+            for(i=0 ; i< result.recordset.length ; i++){
+                // console.log(result.recordset[i].deptName)
+                deptName.push(result.recordset[i].deptName)
+            }
+            // console.log(deptName)
+            res.send(JSON.stringify(deptName))
         }
     })
 })
