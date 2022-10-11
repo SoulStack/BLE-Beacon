@@ -131,8 +131,7 @@ app.get('/beacon-info' , (req, res) => {
 app.get('/graph-info' , (req,res) => {
     // console.log(req.body)
     let query = `SELECT deptName FROM department`
-    let query1 = `SELECT COUNT(*) `
-
+    
     let query_result = mssql.query(query , (err, result) => {
         if(err){
             throw err
