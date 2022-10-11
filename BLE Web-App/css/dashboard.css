@@ -379,18 +379,42 @@ input{
     color: rgba(255, 99, 132, 1);
 }
 
-.legend .l2::marker{
+.legend li:nth-child(2)::marker{
     color: rgba(54, 162, 235, 1);
 }
 
-.legend .l3::marker{
+/* .legend .l2::marker{
+    color: rgba(54, 162, 235, 1);
+} */
+
+.legend li:nth-child(3)::marker{
     color: rgba(255, 206, 86, 1);
 }
 
-.legend .l4::marker{
+.legend li:nth-child(4)::marker{
     color: rgba(75, 192, 192, 1);
 }
 
-.legend .l5::marker{
+.legend li:nth-child(5)::marker{
+    color: rgba(153, 102, 255, 1);
+}
+
+.legend li:nth-child(6)::marker{
+    color: rgba(44, 62, 80 , 1);
+}
+
+.legend li:nth-child(7)::marker{
+    color: rgba(210, 105, 30 , 1);
+}
+
+.legend li:nth-child(8)::marker{
+    color: rgba(64, 224, 208 , 1);
+}
+
+.legend li:nth-child(9)::marker{
+    color: rgba(139, 0, 0 , 1);
+}
+
+.legend li:nth-child(10)::marker{
     color: rgba(153, 102, 255, 1);
 }

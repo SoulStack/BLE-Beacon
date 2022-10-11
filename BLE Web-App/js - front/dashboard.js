@@ -213,88 +213,84 @@ function graph_info(data){
   const nodelist = document.querySelectorAll('.legend');
   const label = Array.from(nodelist);
   
-  console.log(label[0].children.item(0).children)
-  // label[0].children.item(0).innerHTML = '';
-  const li = document.createElement('li');
-  const data_asset =  {
-      labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
-      // labels: data,
+  // console.log(label[0].children.item(0).children.item(0).innerText)
+  for(i=0 ; i< label.length ; i++){
+    const li_parent = label[i].children.item(0);
+    // const li_collection = label[i].children.item(0).children;
+    li_parent.innerHTML = '';
+    for(j = 0 ; j < data.length ; j++){
+      const li = document.createElement('li');
+      li.innerText = data[j];
+      console.log(li)
+      li_parent.appendChild(li)
+    }
+  }
+  
+  const backgroundColor = [
+    'rgba(255, 99, 132, 0.2)', //1
+    'rgba(54, 162, 235, 0.2)', //2
+    'rgba(255, 206, 86, 0.2)', //3
+    'rgba(75, 192, 192, 0.2)', //4
+    'rgba(153, 102, 255, 0.2)', //5
+    'rgba(44, 62, 80 , 0.2)',   //6
+    'rgba(210, 105, 30 , 0.2)',  //7
+    'rgba(64, 224, 208 , 0.2)',   //8
+    'rgba(139, 0, 0 , 0.2)',    //9
+    'rgba(255, 127, 80 , 0.2)'  //10
+  ] ;
+  
+  const borderColor = [
+    'rgba(255, 99, 132, 1)', //1
+    'rgba(54, 162, 235, 1)', //2
+    'rgba(255, 206, 86, 1)', //3
+    'rgba(75, 192, 192, 1)', //4
+    'rgba(153, 102, 255, 1)', //5
+    'rgba(44, 62, 80 , 1)',   //6
+    'rgba(210, 105, 30 , 1)',  //7
+    'rgba(64, 224, 208 , 1)',   //8
+    'rgba(139, 0, 0 , 1)',    //9
+    'rgba(255, 127, 80 , 1)'  //10
+  ]
+  
+  const data_assets =  {
+      // labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
+      labels: data,
       datasets: [{
         label: '# of Votes',
-        data: [122, 119, 30, 175, 22],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
+        data: [122, 119, 30, 175, 22, 40,83 , 152 , 120],
+        backgroundColor: backgroundColor,
+        borderColor: borderColor,
         borderWidth: 1
       }]
     };
 
 const data_doctor =  {
-    labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
+    // labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
+    labels: data,
     datasets: [{
     label: '# of Votes',
-      data: [22, 39, 150, 105, 69],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-        ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
+      data: [22, 39, 150, 105, 69, 50],
+      backgroundColor: backgroundColor,
+      borderColor: borderColor,
       borderWidth: 1
     }]
   };
 
 const data_patient =  {
-    labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
+    // labels: ['Cardiology', 'Gynacology', 'Covid', 'Dental', 'Neurology'],
+    labels: data,
     datasets: [{
       label: '# of Votes',
-      data: [74, 99, 430, 245, 32],
-      backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-      ],
-      borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-      ],
+      data: [74, 99, 430, 245, 32 , 63],
+      backgroundColor: backgroundColor,
+      borderColor: borderColor,
       borderWidth: 1
     }]
 };
 
 const config_asset = {
   type: 'doughnut',
-  data: data_asset,
+  data: data_assets,
   options: {
     responsive: false,
     maintainAspectRatio:false,
